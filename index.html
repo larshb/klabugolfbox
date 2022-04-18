@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Golfbox - Klæbu Golfklubb</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000">
+</head>
+<body>
+  <style>
+    body,html
+    {
+      width:100%;
+      height:100%;
+    }
+    #klabugolf {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0px;
+    }
+    #overlay {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0px;
+      background: rgba(0, 0, 0, 0.8);
+    }
+  </style>
+  <div id="klabugolf">
+    <iframe src="https://klabugolf.no" height="100%" width="100%" frameborder="0" scrolling="no"></iframe>
+  </div>
+  <link rel="stylesheet" href="https://www.golfforbundet.no/ngfGolfbox/golfbox_login.css">
+  <a id="clickToLogin" href="#" class="golfboxLoginOpen"></a>
+  <script src="https://www.golfforbundet.no/ngfGolfbox/golfbox_login.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      document.getElementById('clickToLogin').click();
+    });
+  </script>
+  <script>
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+      .then(function() { console.log("Service worker registered"); });
+    }
+  </script>
+</body>
+</html>
